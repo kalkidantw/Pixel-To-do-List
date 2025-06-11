@@ -1,0 +1,307 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('./fonts/MinecraftRegular-Bmg3.otf') format('opentype');
+
+  }
+  
+body{
+    margin :0;
+    background-color:#00213C;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title{
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Minecraft', sans-serif;
+    color:aliceblue;
+    text-shadow: 2px 2px 0 #000, 6px 6px 0 #000;
+    font-size: 50px;
+}
+
+.tasks{
+    position: absolute;
+    top: 25%;
+    left: 49.5%;
+    transform: translateX(-50%);
+    width: 69.5%;
+    height: 40%;
+    overflow-y: auto; 
+
+}
+
+#taskList {
+    list-style-type: none;
+    padding: 10px;
+    font-family: 'Minecraft', sans-serif;
+    color: white;
+    text-shadow: 1px 1px #000;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.ENTERinput-area{
+    position: absolute;
+    top: 109%;
+    left: 27%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    height: 55px;
+
+    z-index: 2;             /* Must be higher than wrapper */
+    pointer-events: auto;  
+}
+
+.ENTERinput-area input{
+    height: 36px;
+    font-size: 20px;
+    font-family: 'Minecraft', sans-serif;
+    padding: 6px 4px 8px;
+
+    line-height: 1;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+    text-shadow: 1px 1px #000;
+    border: 1px red;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;           /* Make sure it's on top */
+    pointer-events: auto;
+
+}
+
+.ENTERpixel-btn-wrapper {
+  position: absolute;
+  width: 240px;
+  height: 120px;
+  overflow: hidden;
+  z-index: 1;
+
+  display: flex;           
+  align-items: center;      
+  justify-content: center; 
+
+  transform: translateX(-50%);
+  transition: transform 0.05s ease, filter 0.05s ease;
+}
+
+.ENTERpixel-btn-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: filter 0.2s ease;
+  pointer-events: none;
+}
+
+.ENTERpixel-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  font-family: 'Minecraft', sans-serif;
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: left;
+  z-index: 2;
+  text-shadow: 1px 1px black;
+  pointer-events: auto;
+
+
+    /* NEW: prevent spillover */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0px 40px 17px 40px;  /* optional: adds horizontal spacing inside */
+
+  width: 100%;
+  max-width: 100%;        /* NEW - locks width */
+  flex-shrink: 1;         /* NEW - prevent pushing */
+  box-sizing: border-box;
+}
+
+/* Hover darkens button */
+.ENTERpixel-btn-wrapper:hover .pixel-btn-img {
+  filter: brightness(85%);
+}
+
+.ENTERpixel-btn-wrapper.pressed {
+  transform: translateX(-50%) translateY(2px) scale(0.98);
+  filter: brightness(85%);
+}
+
+
+/* Optional: change input text color on focus */
+.ENTERpixel-input:focus {
+  color: white;
+}
+
+.ENTERpixel-text {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Minecraft', sans-serif;
+  color: white;
+  font-size: 20px;
+  z-index: 2;
+  text-shadow: 1px 1px black;
+  pointer-events: none;
+
+}
+
+.ENTERpixel-btn-wrapper:active {
+  transform: translateX(-50%) translateY(2px) scale(0.98);
+  filter: brightness(85%);
+}
+
+/* ADD BUTTON BELOW*/
+
+.ADDpixel-btn-wrapper {
+  position: absolute;
+  width: 180px;
+  height: 120px;
+  overflow: hidden;
+  z-index: 1;
+
+  display: flex;            
+  align-items: center;     
+  justify-content: center; 
+
+  transform: translateX(-50%);
+  transition: transform 0.05s ease, filter 0.05s ease;
+}
+
+.ADDpixel-btn-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: filter 0.2s ease;
+  pointer-events: none;
+}
+
+.ADDpixel-btn-wrapper:hover .pixel-btn-img {
+  filter: brightness(85%);
+}
+
+.ADDpixel-text {
+  position: absolute;
+  top: 41%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  font-family: 'Minecraft', sans-serif;
+  color: white;
+  font-size: 40px;
+  z-index: 2;
+  text-shadow: 2px 2px black;
+  pointer-events: none;
+}
+
+.ADDpixel-btn-wrapper:active {
+  transform: translateX(-50%) translateY(2px) scale(0.98);
+  filter: brightness(85%);
+}
+
+.ADDpixel-btn-wrapper.bouncing {
+  animation: bounce 0.3s ease;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* <-- keeps X on the right */
+  background-color: transparent;
+  padding: 8px 0;
+  margin-bottom: 10px;
+  font-family: 'Minecraft', sans-serif;
+  color: white;
+  font-size: 18px;
+  text-shadow: 1px 1px #000;
+  gap: 12px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+
+.checkbox-img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.task-item span {
+  flex: 1;                         
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  padding: 0 8px;
+}
+
+.delete-btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.signature {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Minecraft', sans-serif;
+  font-size: 14px;
+  color: white;
+  text-shadow: 1px 1px black;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
